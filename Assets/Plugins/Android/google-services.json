@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "711526780692",
+    "project_id": "sir-hapt-huro",
+    "storage_bucket": "sir-hapt-huro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711526780692:android:0c3dcc52e8b123c0c9fc01",
+        "android_client_info": {
+          "package_name": "com.huro.sirhaptic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3H5tu0fw3E7YNS-ttVL0Q6cPTeqIklFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">711526780692</string>
+  <string name="google_storage_bucket" translatable="false">sir-hapt-huro.firebasestorage.app</string>
+  <string name="project_id" translatable="false">sir-hapt-huro</string>
+  <string name="google_api_key" translatable="false">AIzaSyB3H5tu0fw3E7YNS-ttVL0Q6cPTeqIklFE</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB3H5tu0fw3E7YNS-ttVL0Q6cPTeqIklFE</string>
+  <string name="google_app_id" translatable="false">1:711526780692:android:0c3dcc52e8b123c0c9fc01</string>
+</resources>
