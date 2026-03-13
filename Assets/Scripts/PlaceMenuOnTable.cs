@@ -1,7 +1,6 @@
 using Meta.XR.MRUtilityKit;
 using System.Collections;
 using UnityEngine;
-using static PlaceObjectRoom;
 
 public class PlaceMenuOnTable : MonoBehaviour
 {

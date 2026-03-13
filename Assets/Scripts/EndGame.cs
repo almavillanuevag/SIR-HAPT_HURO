@@ -126,9 +126,14 @@ public class EndGame : MonoBehaviour
     {
         Log(" WinSequence comienza");
         // Guardar sesión (async, esperamos su finalización)
-        bool savedDone = false;
-        SaveSessionToFirestore(m, () => savedDone = true);
-        yield return new WaitUntil(() => savedDone);
+        var saveTask = SaveSessionToFirestore(m);
+        yield return new WaitUntil(() => saveTask.IsCompleted);
+
+        if (saveTask.IsFaulted)
+        {
+            Log($"ERROR guardando sesión: {saveTask.Exception}");
+            // Decidir si continuar o no
+        }
 
         // Mostrar UI de victoria con estrellas
         UICanvasWin.SetActive(true);
@@ -202,13 +207,12 @@ public class EndGame : MonoBehaviour
         return metrics;
     }
 
-    async void SaveSessionToFirestore(float[] metrics, Action onDone)
+    async Task SaveSessionToFirestore(float[] metrics)
     {
         // Validar que tenga acceso a la instancia de SelectUser
         if (SelectUser.Instance == null)
         {
             Log("No hay Instancia de SelectUser.cs");
-            onDone?.Invoke();
             return;
         }
         
@@ -221,7 +225,6 @@ public class EndGame : MonoBehaviour
         if (db == null || string.IsNullOrEmpty(IDux))
         {
             Log("ERROR: Firestore no inicializado");
-            onDone?.Invoke();
             return;
         }
 
@@ -269,6 +272,9 @@ public class EndGame : MonoBehaviour
         int rep = CurrentRepetition + 1;
         await userRef.UpdateAsync("CurrentRepetition", rep);
 
+        // También actualizar el valor de la instancia en SelectUser
+        SelectUser.Instance.CurrentRepetition = rep;
+
         // Actualizar el status en firestore
         int totalReps = SelectUser.Instance.totalReps;
         if(CurrentRepetition >= totalReps)
@@ -277,11 +283,7 @@ public class EndGame : MonoBehaviour
             await u.UpdateAsync("status", "completed");
         }
 
-        // También actualizar el valor de la instancia en SelectUser
-        SelectUser.Instance.CurrentRepetition = rep;
-
         Log("GuardadoenFirestore");
-        onDone?.Invoke();
     }
 
     void DisplayStars()

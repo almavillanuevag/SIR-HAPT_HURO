@@ -27,15 +27,13 @@ public class NewSession : MonoBehaviour  // PENDIENTE: Actualizar el valor de Ac
 
         // Leer valores del ID y el número de  repetición
         string IDux = SelectUser.Instance.IDux;
-        int newRep = SelectUser.Instance.CurrentRepetition;
+        int newRep = SelectUser.Instance.CurrentRepetition; // EnGame ya lo aumentó
 
         //Ver si ya terminó
         if (newRep > SelectUser.Instance.totalReps)
         {
             Log($"Protocolo completado. {SelectUser.Instance.totalReps} repeticiones finalizadas.");
             SceneManager.LoadScene("0 Seleccionar usuario"); // volver al menú de selección
-            // Hacer una animación de victoria
-            // Puedo agregar una barra de progreso
             return;
         }
 
