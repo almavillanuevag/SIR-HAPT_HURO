@@ -26,11 +26,15 @@ O bien, desde la interfaz de GitHub:
 4. Seleccionar la carpeta y confirmar.
 6. Esperar a que Unity importe todos los assets y resuelva los paquetes.
 
+> ⚠️ Importante: NO cambiar el target API, debe ser level 34 para que se conecte con Firebase y con los dispositivos de bHaptics.
+
 ### 3. Configurar el Build Target para Android / Meta Quest 3
 
 1. En Unity, ir a **File > Build Settings**.
 2. En la lista de plataformas, seleccionar **Android**.
 3. Hacer clic en **Switch Platform** y esperar a que Unity recompile el proyecto para Android.
+
+
 
 ### 4. Conectar las Meta Quest 3 en modo desarrollador
 
@@ -47,7 +51,7 @@ Las gafas deben estar en modo desarrollador y autorizar la conexión con la comp
 
 1. En Unity, ir a **File > Build Settings**.
 2. En la sección **Run Device**, hacer clic en el ícono de actualización y seleccionar las Meta Quest 3 en la lista desplegable.
-3. Asegurarse de que ambas escenas estén incluidas en **Scenes In Build**. Si no aparece, hacer clic en **Add Open Scenes**.
+3. Asegurarse de que ambas escenas () estén incluidas en **Scene List**. Si no aparecen, hacer clic en **Add Open Scenes**.
 4. Hacer clic en **Build and Run**.
 5. Unity compilará el proyecto, generará el `.apk` y lo instalará automáticamente en las gafas.
 6. La aplicación debería de iniciar directamente en las Meta Quest 3.
